@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/Phase7.css";
-import { AiOutlineHeart } from "react-icons/ai";
-
+import axios from 'axios'
 export default function Phase7({ filepath, heading }) {
+  console.log(filepath);
   useEffect(() => {
     // Add event listener to prevent focus outline on click
     const handleFocus = () => {
@@ -32,17 +32,8 @@ export default function Phase7({ filepath, heading }) {
         <div
           className="container Trending_product_container"
           style={{ borderRadius: "15px 15px 0 0" }}
-          id=""
         >
           {filepath.map((product) => (
-            <Link
-              key={product.id}
-              to={{
-                pathname: "/product-details",
-                state: { product },
-              }}
-              className="product-link"
-            >
               <div className="tranding_page_Card">
                 <img
                   className="trending_product_img"
@@ -61,7 +52,6 @@ export default function Phase7({ filepath, heading }) {
                   </div>
                 </div>
               </div>
-            </Link>
           ))}
         </div>
       </div>
